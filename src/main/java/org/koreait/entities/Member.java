@@ -1,5 +1,7 @@
 package org.koreait.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +16,14 @@ public class Member {
     @Id
     private Long userNo; // USER_NO _알아서 인식
     private String userId;
+
+    @JsonIgnore
     private String userPw;
     private String userNm;
     private String email;
     private String mobile;
+
+    @JsonFormat(pattern = "yyyy.MM.dd HH:mm")
     private LocalDateTime regDt;
     private LocalDateTime modDt;
 }
